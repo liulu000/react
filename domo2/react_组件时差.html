@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../node_modules/react/dist/react.js"></script>
+		<script src="../node_modules/react-dom/dist/react-dom.js"></script>
+		<script src="../node_modules/babel-core/browser.js"></script>
+	</head>
+	<body>
+		<div id='root'></div>
+	</body>
+	<script type="text/babel">
+		class Clock extends React.Component{
+			//构造器
+			constructor(props){
+				super(props);
+				this.state = {date:new Date};
+				this.city = '北京'
+			}
+			//执行的时机
+			componentDidMount(){
+				this.tid = setInterval(
+					()=>this.tick(),1000
+				);
+			}
+			//移除
+			componentWillUnmount(){
+				clearInterval(this.tid);
+			}
+			tick(){
+				this.setState({date:new Date})
+			}
+			//lundun(){
+				//return new Date(this.state.date.getTime() + (this.props.t*60*60*1000)).toLocaleString();
+			//}
+			render(){
+				return(
+					<div>
+						<h1>TIME</h1>
+						<h2>{this.props.city + '' + new Date(this.state.date.getTime() + (this.props.t*60*60*1000)).toLocaleString()}</h2>
+					</div>
+				);
+			}
+		}
+		/*const element = React.createElement(
+			'div',
+			{},
+			<Clock/>
+		)*/
+		const element = <div>
+			<Clock city="北京" t='0'/>
+			<Clock city="伦敦" t='8'/>
+		</div>
+		ReactDOM.render(element,root);
+	</script>
+</html>

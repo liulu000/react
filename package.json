@@ -1,0 +1,17 @@
+{
+  "name": "myreact",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "babel": "^5.8.38",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
